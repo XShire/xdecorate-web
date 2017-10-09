@@ -4,7 +4,15 @@
     </mu-appbar>
 </template>
 
-<script></script>
+<script>
+    export default {
+        data(){
+            return {
+
+            }
+        }
+    }
+</script>
 
 <style lang="less">
     .appbar-search-field {

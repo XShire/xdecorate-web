@@ -11,8 +11,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
-<div id="app-main"></div>
-
+<div id="app"></div>
+<div class="home-main-grid" id="home-main-grid">
+    This is app !
+    <p>
+        <router-link to="/foo">Go to Foo</router-link>
+        <router-link to="/bar">Go to Bar</router-link>
+    </p>
+    <router-view></router-view>
+</div>
 <script src="/dist/main.js"></script>
 </body>
 </html>

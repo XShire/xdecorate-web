@@ -1,14 +1,16 @@
 <template>
     <mu-paper>
         <my-head></my-head>
-
+        <div class="home-main-grid" id="home-main-grid">
+            This is home !
+        </div>
         <my-foot></my-foot>
     </mu-paper>
 </template>
 
 <script>
-    import myHead from './component/header/head.vue'
-    import myFoot from './component/footer/foot.vue'
+    import myHead from '../header/head.vue'
+    import myFoot from '../footer/foot.vue'
 
     export default {
         components: {

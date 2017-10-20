@@ -1,6 +1,6 @@
 <template>
     <div class="home-main-grid" id="home-main-grid">
-        <h1>Hello App!</h1>
+        <div>个人中心</div>
     </div>
 </template>
 

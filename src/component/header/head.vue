@@ -15,9 +15,16 @@
 </script>
 
 <style lang="less">
+    .mu-appbar{
+        height: 48px;
+    }
+    .mu-appbar-title{
+        line-height: 0;
+    }
     .appbar-search-field {
         color: #FFF;
         margin-bottom: 0;
+        display: block;
         &.focus-state {
             color: #FFF;
         }
@@ -33,6 +40,6 @@
     }
 
     .mu-text-field {
-        width: 94%;
+        width: 96%;
     }
 </style>

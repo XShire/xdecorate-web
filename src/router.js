@@ -1,24 +1,29 @@
 
-import Vue from 'vue';
+import Vue from 'vue'
 import VueRouter from 'vue-router';
+
 import Home from './component/common/home.vue'
 import Person from './component/common/person.vue'
-import Project from './component/common/project.vue'
-import Work from './component/common/work.vue'
+import Design from './component/common/design.vue'
+import Share from './component/common/share.vue'
+import ShareContract from './component/share/contract.vue'
+import ShareDetail from './component/share/detail.vue'
 
 Vue.use(VueRouter);
 
 const routes = [
     {path:'/home',component: Home},
     {path:'/person',component: Person},
-    {path:'/project',component: Project},
-    {path:'/work',component: Work},
+    {path:'/design',component: Design},
+    {path:'/share',component: Share},
+    {path:'/share_contract',component: ShareContract},
+    {path:'/share_detail',component: ShareDetail},
     {path: '/', component: Home}
 ]
 
 const router = new VueRouter({
-    routes,
-    history: true
+    base: '/mobile/',
+    routes
 }); //这里可以带有路由器的配置参数
 
 export default router; //将路由器导出

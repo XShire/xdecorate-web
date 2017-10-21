@@ -1,6 +1,6 @@
 <template>
     <div class="home-main-grid" id="home-main-grid">
-        <div>工作日常</div>
+        <h1>合同列表</h1>
     </div>
 </template>
 
@@ -17,9 +17,6 @@
 </script>
 
 <style lang="less">
-    .home-main-grid {
-        padding-top: 20px;
-        padding-bottom: 56px;
-    }
+
 </style>
 

@@ -5,13 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
-    <link rel="icon" href="./src/image/logo.png">
+    <link rel="icon" href="../static/image/logo.png">
     <title>xdecorate</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
 <div id="app"></div>
-<script src="/dist/main.js"></script>
+<script src="../dist/main.js"></script>
+<script>
+
+    /*
+    rem 适配
+    基于宽 360px 的屏幕分成了 36 份，也就是 1rem = 10px
+    */
+    let html = document.documentElement;
+    window.rem = html.getBoundingClientRect().width / 36 ;
+    html.style.fontSize = window.rem + 'px';
+</script>
 </body>
 </html>

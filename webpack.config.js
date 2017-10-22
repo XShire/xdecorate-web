@@ -50,7 +50,14 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    noInfo: true
+    noInfo: true,
+    proxy: {
+        '/xdecorate/*': {
+            target: 'http://127.0.0.1:8081',
+            changeOrigin: true,
+            secure: true
+        }
+    }
   },
   performance: {
     hints: false

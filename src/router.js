@@ -17,7 +17,7 @@ const routes = [
     {path:'/design',component: Design},
     {path:'/share',component: Share},
     {path:'/share_contract',component: ShareContract},
-    {path:'/share_detail',component: ShareDetail},
+    {path:'/share_detail/:project_code',name: 'share_detail',component: ShareDetail},
     {path: '/', component: Home}
 ]
 

@@ -3,6 +3,7 @@
  * @type {[string,string,string,string,string,string,string,string,string,string,string,string,string,string,string,string,string,string,string,string]}
  */
 
+const basePath = '/xdecorate'
 
 /*取一个随机的颜色*/
 const colorList = [
@@ -41,7 +42,8 @@ function getRandColor () {
 /*设置*/
 export default
 {
-    getRandColor
+    getRandColor,
+    basePath
 }
 
 

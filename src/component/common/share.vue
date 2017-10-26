@@ -7,12 +7,16 @@
                     <mu-icon value="navigate_next" slot="right"/>
                 </mu-list-item>
             </router-link>
-            <mu-list-item title="审计管理">
-                <mu-icon value="navigate_next" slot="right"/>
-            </mu-list-item>
-            <mu-list-item title="施工图纸">
-                <mu-icon value="navigate_next" slot="right"/>
-            </mu-list-item>
+            <router-link to="share_audit">
+                <mu-list-item title="审计管理">
+                    <mu-icon value="navigate_next" slot="right"/>
+                </mu-list-item>
+            </router-link>
+            <router-link to="share_design">
+                <mu-list-item title="施工图纸">
+                    <mu-icon value="navigate_next" slot="right"/>
+                </mu-list-item>
+            </router-link>
         </mu-list>
     </div>
 </template>

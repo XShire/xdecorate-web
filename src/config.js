@@ -36,7 +36,6 @@ function getRandColor () {
 /*取一个随机的颜色*/
 
 
-
 /*设置*/
 
 /*设置*/
@@ -44,6 +43,7 @@ export default
 {
     getRandColor,
     basePath
+
 }
 
 

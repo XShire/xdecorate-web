@@ -1,5 +1,6 @@
 <template>
     <mu-paper>
+        <snack-bar></snack-bar>
         <router-view></router-view>
         <my-foot></my-foot>
     </mu-paper>
@@ -7,10 +8,20 @@
 
 <script>
     import myFoot from './component/footer/foot.vue'
+    import snackBar from './component/common/snackBar.vue'
 
     export default {
+        data () {
+            return {
+
+            }
+        },
         components: {
             myFoot,
+            snackBar
+        },
+        methods: {
+
         }
     }
 </script>

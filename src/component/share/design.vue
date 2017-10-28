@@ -102,7 +102,8 @@
 </script>
 
 <style lang="less">
-    .mu-appbar {
+    .mu-appbar{
+        height: 48px;
         position: fixed;
         top: 0;
         left: 0;

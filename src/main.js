@@ -80,7 +80,7 @@ axios.get('/project/this_login')
             store.state.loginData.realName = _data.param5;
             store.state.loginData.phoneNumber = _data.param11;
         }else{
-            store.commit('showSnackBar',result.param1)
+            store.commit('showSnackBar',result.param1==null||result.param1==''?'尚未登录':result.param1)
         }
 
         getProjectSetting();
@@ -102,7 +102,7 @@ function getProjectSetting() {
                     store.state.projectSelected.code = _data.param3;
                     store.state.projectSelected.name = _data.param7;
                 }else{
-                    store.commit('showSnackBar',result.param1)
+                    store.commit('showSnackBar',result.param1==null||result.param1==''?'尚未设置默认工程':result.param1)
                 }
             }).catch(function (error) {
                 console.info(error)
@@ -127,7 +127,7 @@ function routerEach(){
         }
     });
 
-    router.push('/home')
+    router.push('/login')
 }
 
 

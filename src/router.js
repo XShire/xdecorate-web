@@ -17,6 +17,7 @@ import ShareDesign from './component/share/design.vue'
 Vue.use(VueRouter);
 
 const routes = [
+    {path: '/', component: Login},
     {path:'/login',component: Login},
     {path:'/home',component: Home},
     {path:'/person',component: Person},
@@ -26,8 +27,7 @@ const routes = [
     {path:'/share_contract_detail/:x_code',name: 'share_contract_detail',component: ShareContractDetail},
     {path:'/share_audit',component: ShareAudit},
     {path:'/share_audit_detail/:x_code',name: 'share_audit_detail',component: ShareAuditDetail},
-    {path:'/share_design',component: ShareDesign},
-    {path: '/', component: Home}
+    {path:'/share_design',component: ShareDesign}
 ]
 
 const router = new VueRouter({

@@ -3,6 +3,7 @@
         <mu-appbar>
             <mu-text-field icon="search" class="appbar-search-field" slot="default" hintText="请输入搜索内容"/>
         </mu-appbar>
+        <div class="divider-block"></div>
 
         <div class="demo-badge-container">
             <a href="../xdecorate/project/mobile/sign_add#x-layer-1">
@@ -42,6 +43,12 @@
 
 <style lang="less">
     .mu-appbar{
+        height: 48px;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    .divider-block{
         height: 48px;
     }
     .mu-appbar-title{

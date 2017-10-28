@@ -2,11 +2,10 @@
     <div class="home-main-grid" id="home-main-grid">
         <mu-list>
             <mu-sub-header>审计列表</mu-sub-header>
-            <router-link v-bind:to="{ name: 'share_detail', params: { project_code: item.param3 }}" v-for="item in auditList">
-                <mu-list-item v-bind:title="item.param4">
-                    <mu-icon value="navigate_next" slot="right"/>
-                </mu-list-item>
-            </router-link>
+            <mu-list-item v-bind:title="item.param4" v-bind:describeText="item.param8"
+                          v-bind:to="{ name: 'share_audit_detail', params: { x_code: item.param3 }}" v-for="item in auditList">
+                <mu-icon value="navigate_next" slot="right"/>
+            </mu-list-item>
         </mu-list>
     </div>
 </template>

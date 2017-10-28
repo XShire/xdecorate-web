@@ -2,7 +2,7 @@
     <div class="home-main-grid" id="home-main-grid">
         <mu-list>
             <mu-sub-header>工程列表</mu-sub-header>
-            <router-link v-bind:to="{ name: 'share_detail', params: { project_code: item.param3 }}" v-for="item in projectList">
+            <router-link v-bind:to="{ name: 'share_contract_detail', params: { x_code: item.param3 }}" v-for="item in projectList">
                 <mu-list-item v-bind:title="item.param7">
                     <mu-icon value="navigate_next" slot="right"/>
                 </mu-list-item>
@@ -35,7 +35,7 @@
                     var _data = JSON.parse(result.param1);
                     _this.projectList = _data;
                 }else{
-                    alert(result.param1);
+                    _this.$store.commit('showSnackBar',result.param1)
                 }
             }).catch(function (error) {
                 console.log(error);

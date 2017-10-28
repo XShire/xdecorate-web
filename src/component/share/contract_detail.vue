@@ -17,25 +17,23 @@
             }
         },
         created: function(){
-            console.log('project_code: ' + this.$route.params.project_code);
             var _this = this;
             var param1 = "GetProjectContractList";
             var param2 = "ByProject";
             var param3 = null;
             var param4 = null;
-            var param5 = this.$route.params.project_code;
+            var param5 = this.$route.params.x_code;
             var saveData = {"param1": param1, "param2": param2, "param3": param3, "param4": param4, "param5": param5};
             var url = "/project/getObjects";
             this.$http.post(url,saveData
 
             ).then(function (response) {
                 var result = response.data;
-                console.info(result)
                 if(result.param0==0){
                     var _data = JSON.parse(result.param1);
                     _this.list = _data;
                 }else{
-                    alert(result.param1);
+                    _this.$store.commit('showSnackBar',result.param1)
                 }
             }).catch(function (error) {
                 console.log(error);

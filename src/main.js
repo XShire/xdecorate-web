@@ -61,6 +61,13 @@ axios.defaults.baseURL = config.basePath + ''
 
 Vue.prototype.$http = axios
 
+new Vue({
+    el: '#app',
+    store,
+    router,
+    render: h => h(App)
+})
+
 
 //获取登录用户，验证是否登录
 axios.get('/project/this_login')
@@ -81,8 +88,8 @@ axios.get('/project/this_login')
     })
     .catch(function(error){
         console.info(error)
+        routerEach();
     });
-
 
 //获取当前用户默认的工程
 function getProjectSetting() {
@@ -119,16 +126,12 @@ function routerEach(){
             next();
         }
     });
+
+    router.push('/home')
 }
 
 
 
-new Vue({
-    el: '#app',
-    store,
-    router,
-    render: h => h(App)
-})
 
-router.push('/home')
+
 

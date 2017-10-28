@@ -8,7 +8,7 @@
 
 <script>
     import myFoot from './component/footer/foot.vue'
-    import snackBar from './component/common/snackBar.vue'
+    import snackBar from './component/util/snackBar.vue'
 
     export default {
         data () {
@@ -27,9 +27,14 @@
 </script>
 
 <style lang="less">
-    html, body, .mu-paper {
+    html, body {
         width: 100%;
         height: 100%;
+    }
+    .mu-paper{
+        width: 100%;
+        height: auto;
+        min-height: 100%;
     }
     body{
         -webkit-overflow-scrolling: touch;

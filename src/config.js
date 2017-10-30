@@ -35,6 +35,7 @@ function getRandColor () {
 }
 /*取一个随机的颜色*/
 
+const org_code = '5af4bda6c873448fb757e3b9b8129c39'
 
 /*设置*/
 
@@ -42,7 +43,8 @@ function getRandColor () {
 export default
 {
     getRandColor,
-    basePath
+    basePath,
+    org_code
 
 }
 

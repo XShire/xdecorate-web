@@ -55,7 +55,7 @@
 
 <style lang="less">
     figure {
-        margin: 1rem 0;
+        margin: .5rem 0 1.5rem;
         position: relative;
     }
     figure a{

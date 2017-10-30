@@ -88,7 +88,7 @@
         },
         created: function () {
             var _this = this
-            var url = "/project/drawContentJsTree/ByProjectAndOnlyDisplay2/"+_this.$store.state.projectSelected.code;
+            var url = "/project/drawContentJsTree/ByProject2/"+_this.$store.state.projectSelected.code;
             this.$http.get(url)
                 .then(function (response) {
                     _this.contentList = response.data

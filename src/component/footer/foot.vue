@@ -1,7 +1,7 @@
 <template>
     <mu-bottom-nav :value="bottomNav" @change="handleChange">
         <mu-bottom-nav-item value="home" title="首页" icon="home" @click.native="handleClick"/>
-        <mu-bottom-nav-item value="design" title="功能应用" icon="view_quilt" @click.native="handleClick"/>
+        <mu-bottom-nav-item value="project" title="功能应用" icon="view_quilt" @click.native="handleClick"/>
         <mu-bottom-nav-item value="share" title="共享文档" icon="dvr" @click.native="handleClick"/>
         <mu-bottom-nav-item value="person" title="个人中心" icon="person" @click.native="handleClick"/>
     </mu-bottom-nav>

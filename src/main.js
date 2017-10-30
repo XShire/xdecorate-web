@@ -29,6 +29,7 @@ const store = new Vuex.Store({
         },
         loginData: {
             isLogin: false,
+            userCode: null,
             username: null,
             realName: null,
             phoneNumber: null
@@ -76,6 +77,7 @@ axios.get('/project/this_login')
         if(result.param0==0){
             var _data = JSON.parse(result.param1);
             store.state.loginData.isLogin = true;
+            store.state.loginData.userCode = _data.param3;
             store.state.loginData.username = _data.param4;
             store.state.loginData.realName = _data.param5;
             store.state.loginData.phoneNumber = _data.param11;

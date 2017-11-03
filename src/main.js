@@ -129,7 +129,7 @@ function routerEach(){
         }
     });
 
-    router.push('/login')
+    // router.push('/login')
 }
 
 

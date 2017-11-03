@@ -18,6 +18,9 @@ import MaterialGoodsGroup from './component/material/goods_group.vue'
 import MaterialWarehouse from './component/material/warehouse.vue'
 import MaterialWarehouseNew from './component/material/warehouse_new.vue'
 import MaterialInWarehouse from './component/material/in_warehouse.vue'
+import BuildGoodsApply from './component/build/goods_apply.vue'
+import BuildGoodsBill from './component/build/goods_bill.vue'
+import BuildGoodsBillDetail from './component/build/goods_bill_detail.vue'
 
 Vue.use(VueRouter);
 
@@ -38,7 +41,10 @@ const routes = [
     {path:'/material_goods_group',component: MaterialGoodsGroup},
     {path:'/material_warehouse',component: MaterialWarehouse},
     {path:'/material_warehouse_new',component: MaterialWarehouseNew},
-    {path:'/material_in_warehouse',component: MaterialInWarehouse}
+    {path:'/material_in_warehouse',component: MaterialInWarehouse},
+    {path:'/build_goods_apply',component: BuildGoodsApply},
+    {path:'/build_goods_bill',component: BuildGoodsBill},
+    {path:'/build_goods_bill_detail/:x_code',name: 'build_goods_bill_detail',component: BuildGoodsBillDetail}
 ]
 
 const router = new VueRouter({

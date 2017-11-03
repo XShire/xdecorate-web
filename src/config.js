@@ -5,47 +5,43 @@
 
 const basePath = '/xdecorate'
 
-/*取一个随机的颜色*/
-const colorList = [
-    '#F9F900',
-    '#6FB7B7',
-    '#9999CC',
-    '#B766AD',
-    '#B87070',
-    '#FF8F59',
-    '#FFAF60',
-    '#FFDC35',
-    '#FFFF37',
-    '#B7FF4A',
-    '#28FF28',
-    '#1AFD9C',
-    '#00FFFF',
-    '#2894FF',
-    '#6A6AFF',
-    '#BE77FF',
-    '#FF77FF',
-    '#FF79BC',
-    '#FF2D2D',
-    '#ADADAD'
-]
-const colorListLength = 20
-function getRandColor () {
-    var tem = Math.round(Math.random() * colorListLength)
-    return colorList[tem]
-}
-/*取一个随机的颜色*/
-
 const org_code = '5af4bda6c873448fb757e3b9b8129c39'
+
+//对Date的扩展，将 Date 转化为指定格式的String
+//月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，
+//年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字)
+//例子：
+//(new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423
+//(new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18
+function dateFormat(date,fmt) { //author: meizz
+    var o = {
+        "M+": date.getMonth() + 1, //月份
+        "d+": date.getDate(), //日
+        "h+": date.getHours(), //小时
+        "m+": date.getMinutes(), //分
+        "s+": date.getSeconds(), //秒
+        "q+": Math.floor((date.getMonth() + 3) / 3), //季度
+        "S": date.getMilliseconds(), //毫秒
+        "T": "T" //datetime-local的分隔符
+    };
+    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+        if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
+}
+
+//获取当前的短日期
+const new_date = dateFormat(new Date(),'yyyy-MM-dd')
 
 /*设置*/
 
 /*设置*/
 export default
 {
-    getRandColor,
     basePath,
-    org_code
-
+    org_code,
+    dateFormat,
+    new_date
 }
 
 

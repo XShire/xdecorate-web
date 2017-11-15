@@ -26,7 +26,7 @@
             </mu-list-item>
         </mu-list>
         <mu-list>
-            <mu-sub-header>施工管理</mu-sub-header>
+            <mu-sub-header>施工材料管理</mu-sub-header>
             <mu-list-item title="材料申请" to="build_goods_apply">
                 <mu-icon value="navigate_next" slot="right"/>
             </mu-list-item>
@@ -34,6 +34,24 @@
                 <mu-icon value="navigate_next" slot="right"/>
             </mu-list-item>
             <mu-list-item title="材料统计" to="build_goods_total">
+                <mu-icon value="navigate_next" slot="right"/>
+            </mu-list-item>
+        </mu-list>
+        <mu-list>
+            <mu-sub-header>施工进度管理</mu-sub-header>
+            <mu-list-item title="预计工期" to="build_limit_list">
+                <mu-icon value="navigate_next" slot="right"/>
+            </mu-list-item>
+        </mu-list>
+        <mu-list>
+            <mu-sub-header>质量管理</mu-sub-header>
+            <mu-list-item title="质检记录" to="build_check_quality_list">
+                <mu-icon value="navigate_next" slot="right"/>
+            </mu-list-item>
+            <mu-list-item title="巡检记录">
+                <mu-icon value="navigate_next" slot="right"/>
+            </mu-list-item>
+            <mu-list-item title="曝光台">
                 <mu-icon value="navigate_next" slot="right"/>
             </mu-list-item>
         </mu-list>

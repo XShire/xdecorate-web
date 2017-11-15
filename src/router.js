@@ -23,6 +23,9 @@ import BuildGoodsBill from './component/build/goods_bill.vue'
 import BuildGoodsBillDetail from './component/build/goods_bill_detail.vue'
 import BuildGoodsBillReceive from './component/build/goods_bill_receive.vue'
 import BuildGoodsTotal from './component/build/goods_total.vue'
+import BuildLimitList from './component/build/limit_list.vue'
+import BuildLimitDetail from './component/build/limit_detail.vue'
+import BuildCheckQualityList from './component/build/check_quality_list.vue'
 
 Vue.use(VueRouter);
 
@@ -48,7 +51,10 @@ const routes = [
     {path:'/build_goods_bill',component: BuildGoodsBill},
     {path:'/build_goods_bill_detail/:x_code',name: 'build_goods_bill_detail',component: BuildGoodsBillDetail},
     {path:'/build_goods_bill_receive/:x_code',name: 'build_goods_bill_receive',component: BuildGoodsBillReceive},
-    {path:'/build_goods_total',component: BuildGoodsTotal}
+    {path:'/build_goods_total',component: BuildGoodsTotal},
+    {path:'/build_limit_list',component: BuildLimitList},
+    {path:'/build_limit_detail/:x_code',name: 'build_limit_detail',component: BuildLimitDetail},
+    {path:'/build_check_quality_list',component: BuildCheckQualityList}
 ]
 
 const router = new VueRouter({

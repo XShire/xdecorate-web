@@ -435,15 +435,6 @@
 </script>
 
 <style lang="less">
-    .mu-appbar{
-        height: 48px;
-        position: fixed;
-        top: 0;
-        left: 0;
-    }
-    .divider-block{
-        height: 48px;
-    }
     .demo-step-button {
         margin-top: 12px;
         margin-right: 12px;

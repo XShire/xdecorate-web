@@ -101,15 +101,6 @@
 </script>
 
 <style lang="less">
-    .mu-appbar{
-        height: 48px;
-        position: fixed;
-        top: 0;
-        left: 0;
-    }
-    .divider-block{
-        height: 48px;
-    }
     figure {
         margin: .5rem 0 1.5rem;
         position: relative;

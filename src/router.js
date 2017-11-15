@@ -21,6 +21,8 @@ import MaterialInWarehouse from './component/material/in_warehouse.vue'
 import BuildGoodsApply from './component/build/goods_apply.vue'
 import BuildGoodsBill from './component/build/goods_bill.vue'
 import BuildGoodsBillDetail from './component/build/goods_bill_detail.vue'
+import BuildGoodsBillReceive from './component/build/goods_bill_receive.vue'
+import BuildGoodsTotal from './component/build/goods_total.vue'
 
 Vue.use(VueRouter);
 
@@ -44,7 +46,9 @@ const routes = [
     {path:'/material_in_warehouse',component: MaterialInWarehouse},
     {path:'/build_goods_apply',component: BuildGoodsApply},
     {path:'/build_goods_bill',component: BuildGoodsBill},
-    {path:'/build_goods_bill_detail/:x_code',name: 'build_goods_bill_detail',component: BuildGoodsBillDetail}
+    {path:'/build_goods_bill_detail/:x_code',name: 'build_goods_bill_detail',component: BuildGoodsBillDetail},
+    {path:'/build_goods_bill_receive/:x_code',name: 'build_goods_bill_receive',component: BuildGoodsBillReceive},
+    {path:'/build_goods_total',component: BuildGoodsTotal}
 ]
 
 const router = new VueRouter({

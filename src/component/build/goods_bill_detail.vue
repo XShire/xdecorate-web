@@ -1,7 +1,7 @@
 <template>
     <div class="home-main-grid" id="home-main-grid">
 
-        <mu-appbar>
+       <mu-appbar>
             <mu-icon-button icon="menu" slot="left" @click="toggle"/>
             <mu-flat-button label="自行购买" secondary slot="right" @click="addProvGoods"/>
             <mu-flat-button label="材料库添加" secondary slot="right" @click="toggleR"/>
@@ -81,10 +81,10 @@
 
         <mu-dialog :open="dialog" @close="closeDialog" dialogClass="goods-info-box" scrollable>
             <div>
-                <mu-text-field label="材料名称" v-model="goods.name"/>
-                <mu-text-field label="采购单价(元)" type="number" v-model="goods.price"/>
-                <mu-text-field label="计量单位" v-model="goods.unit"/>
-                <mu-text-field label="采购数量" type="number" v-model="goods.number"/>
+                <mu-text-field label="材料名称" v-model="goods.name" fullWidth/>
+                <mu-text-field label="采购单价(元)" type="number" v-model="goods.price" fullWidth/>
+                <mu-text-field label="计量单位" v-model="goods.unit" fullWidth/>
+                <mu-text-field label="采购数量" type="number" v-model="goods.number" fullWidth/>
             </div>
             <mu-flat-button primary label="关闭" @click="closeDialog" slot="actions"/>
             <mu-flat-button secondary label="保存" @click="saveRequestItem" slot="actions"/>
@@ -335,8 +335,7 @@
         max-width: 80%;
     }
     .goods-info-box .mu-dialog-body{
-        padding-top:10px;
-        padding-bottom: 0;
+        padding:10px 2% 0;
     }
     .item_label{
         display: inline-block;

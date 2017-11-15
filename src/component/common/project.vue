@@ -33,6 +33,9 @@
             <mu-list-item title="提料单" to="build_goods_bill">
                 <mu-icon value="navigate_next" slot="right"/>
             </mu-list-item>
+            <mu-list-item title="材料统计" to="build_goods_total">
+                <mu-icon value="navigate_next" slot="right"/>
+            </mu-list-item>
         </mu-list>
     </div>
 </template>
@@ -50,9 +53,6 @@
 </script>
 
 <style lang="less">
-    .home-main-grid {
-        padding-top: 0;
-        padding-bottom: 56px;
-    }
+
 </style>
 

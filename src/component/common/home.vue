@@ -42,15 +42,7 @@
 </script>
 
 <style lang="less">
-    .mu-appbar{
-        height: 48px;
-        position: fixed;
-        top: 0;
-        left: 0;
-    }
-    .divider-block{
-        height: 48px;
-    }
+
     .mu-appbar-title{
         line-height: 0;
     }
@@ -74,11 +66,6 @@
 
     .mu-text-field {
         width: 96%;
-    }
-
-    .home-main-grid {
-        padding-top: 0;
-        padding-bottom: 56px;
     }
 
     .demo-badge-container {

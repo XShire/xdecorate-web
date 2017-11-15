@@ -10,6 +10,7 @@
                         <mu-col width="100"><span class="item_label">申请时间：</span>{{item.param4}}</mu-col>
                         <mu-col width="100"><span class="item_label">所在工程：</span>{{item.param10}}</mu-col>
                         <mu-col width="100"><span class="item_label">申请说明：</span>{{item.param8}}</mu-col>
+                        <mu-col width="100"><mu-raised-button label="接收材料" :to="{ name: 'build_goods_bill_receive', params: { x_code: item.param3 }}" primary/></mu-col>
                     </mu-row>
                 </div>
                 <mu-icon value="navigate_next" slot="right"/>

@@ -64,6 +64,13 @@
                 <mu-icon value="navigate_next" slot="right"/>
             </mu-list-item>
         </mu-list>
+
+        <mu-list>
+            <mu-sub-header>财务结算</mu-sub-header>
+            <mu-list-item title="材料结算" to="settle_in_warehouse">
+                <mu-icon value="navigate_next" slot="right"/>
+            </mu-list-item>
+        </mu-list>
     </div>
 </template>
 

@@ -28,6 +28,8 @@ import BuildLimitDetail from './component/build/limit_detail.vue'
 import BuildCheckQualityList from './component/build/check_quality_list.vue'
 import BudgetTender from './component/budget/tender.vue'
 import BudgetTenderDetail from './component/budget/tender_detail.vue'
+import SettleInWarehouse from './component/settle/in_warehouse.vue'
+import SettleInWarehousePaid from './component/settle/in_warehouse_paid.vue'
 
 Vue.use(VueRouter);
 
@@ -58,7 +60,9 @@ const routes = [
     {path:'/build_limit_detail/:x_code',name: 'build_limit_detail',component: BuildLimitDetail},
     {path:'/build_check_quality_list',component: BuildCheckQualityList},
     {path:'/budget_tender',component: BudgetTender},
-    {path:'/budget_tender_detail/:x_code',name: 'budget_tender_detail',component: BudgetTenderDetail}
+    {path:'/budget_tender_detail/:x_code',name: 'budget_tender_detail',component: BudgetTenderDetail},
+    {path:'/settle_in_warehouse',component: SettleInWarehouse},
+    {path:'/settle_in_warehouse_paid',component: SettleInWarehousePaid}
 ]
 
 const router = new VueRouter({

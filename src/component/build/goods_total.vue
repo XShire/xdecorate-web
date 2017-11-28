@@ -82,7 +82,7 @@
 <style lang="less">
     .item_label{
         display: inline-block;
-        width: 5rem;
+        width: 50px;
         line-height: 2;
     }
 </style>

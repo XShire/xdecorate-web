@@ -339,7 +339,7 @@
     }
     .item_label{
         display: inline-block;
-        width: 8rem;
+        width: 80px;
         line-height: 2;
     }
     .title-manage{

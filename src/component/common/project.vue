@@ -1,6 +1,15 @@
 <template>
     <div class="home-main-grid" id="home-main-grid">
         <mu-list>
+            <mu-sub-header>预决算</mu-sub-header>
+            <mu-list-item title="投标管理" to="budget_tender">
+                <mu-icon value="navigate_next" slot="right"/>
+            </mu-list-item>
+            <mu-list-item title="审计管理">
+                <mu-icon value="navigate_next" slot="right"/>
+            </mu-list-item>
+        </mu-list>
+        <mu-list>
             <mu-sub-header>设计管理</mu-sub-header>
             <mu-list-item title="现场记录" to="design_original_file">
                 <mu-icon value="navigate_next" slot="right"/>

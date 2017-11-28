@@ -26,6 +26,8 @@ import BuildGoodsTotal from './component/build/goods_total.vue'
 import BuildLimitList from './component/build/limit_list.vue'
 import BuildLimitDetail from './component/build/limit_detail.vue'
 import BuildCheckQualityList from './component/build/check_quality_list.vue'
+import BudgetTender from './component/budget/tender.vue'
+import BudgetTenderDetail from './component/budget/tender_detail.vue'
 
 Vue.use(VueRouter);
 
@@ -54,7 +56,9 @@ const routes = [
     {path:'/build_goods_total',component: BuildGoodsTotal},
     {path:'/build_limit_list',component: BuildLimitList},
     {path:'/build_limit_detail/:x_code',name: 'build_limit_detail',component: BuildLimitDetail},
-    {path:'/build_check_quality_list',component: BuildCheckQualityList}
+    {path:'/build_check_quality_list',component: BuildCheckQualityList},
+    {path:'/budget_tender',component: BudgetTender},
+    {path:'/budget_tender_detail/:x_code',name: 'budget_tender_detail',component: BudgetTenderDetail}
 ]
 
 const router = new VueRouter({

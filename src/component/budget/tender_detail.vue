@@ -188,8 +188,7 @@
                 });
             },
             saveOtherItem() {
-
-                let _this = this;console.info(_this.other_item)
+                let _this = this;
                 let url = "/project/add";
                 _this.$http.post(url,{
                     param0: _this.other_item.code,

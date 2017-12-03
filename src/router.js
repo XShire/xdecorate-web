@@ -30,6 +30,8 @@ import BudgetTender from './component/budget/tender.vue'
 import BudgetTenderDetail from './component/budget/tender_detail.vue'
 import SettleInWarehouse from './component/settle/in_warehouse.vue'
 import SettleInWarehousePaid from './component/settle/in_warehouse_paid.vue'
+import BudgetContract from './component/budget/contract.vue'
+import BudgetContractDetail from './component/budget/contract_detail.vue'
 
 Vue.use(VueRouter);
 
@@ -62,7 +64,9 @@ const routes = [
     {path:'/budget_tender',component: BudgetTender},
     {path:'/budget_tender_detail/:x_code',name: 'budget_tender_detail',component: BudgetTenderDetail},
     {path:'/settle_in_warehouse',component: SettleInWarehouse},
-    {path:'/settle_in_warehouse_paid',component: SettleInWarehousePaid}
+    {path:'/settle_in_warehouse_paid',component: SettleInWarehousePaid},
+    {path:'/budget_contract',component: BudgetContract},
+    {path:'/budget_contract_detail/:x_code',name: 'budget_contract_detail',component: BudgetContractDetail}
 ]
 
 const router = new VueRouter({

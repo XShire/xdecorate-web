@@ -5,7 +5,7 @@
             <mu-list-item title="投标管理" to="budget_tender">
                 <mu-icon value="navigate_next" slot="right"/>
             </mu-list-item>
-            <mu-list-item title="审计管理">
+            <mu-list-item title="合同管理" to="budget_contract">
                 <mu-icon value="navigate_next" slot="right"/>
             </mu-list-item>
         </mu-list>

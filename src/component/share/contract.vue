@@ -1,7 +1,7 @@
 <template>
     <div class="home-main-grid" id="home-main-grid">
         <mu-list>
-            <mu-sub-header>工程列表</mu-sub-header>
+            <mu-sub-header>选择工程</mu-sub-header>
             <router-link v-bind:to="{ name: 'share_contract_detail', params: { x_code: item.param3 }}" v-for="item in projectList">
                 <mu-list-item v-bind:title="item.param7">
                     <mu-icon value="navigate_next" slot="right"/>

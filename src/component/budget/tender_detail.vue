@@ -9,7 +9,7 @@
         </mu-sub-header>
         <mu-divider shallowInset/>
         <mu-list>
-            <mu-list-item :describeLine="20">
+            <mu-list-item :describeLine="20" disabled>
                 <div slot="describe">
                     <mu-row gutter>
                         <mu-col width="100"><span class="item_label_1">单位：</span>{{itemData.param6}}</mu-col>
@@ -35,7 +35,7 @@
         <mu-divider shallowInset/>
         <div v-if="!otherList || otherList.length==0" class="no-item-other">暂未添加其它投标人</div>
         <mu-list>
-            <mu-list-item v-for="item in otherList" :describeLine="10">
+            <mu-list-item v-for="item in otherList" :describeLine="10" disabled>
                 <div slot="title">
                     {{item.param4}}
                     <mu-flat-button label="修改" primary @click="otherToggle(item)"/>

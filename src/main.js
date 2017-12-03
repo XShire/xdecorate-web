@@ -15,7 +15,10 @@ Vue.use(MuseUI)
 Vue.use(config)
 
 
-var options={'mouseUsed':true}
+var options={
+    mouseUsed:true,//支持鼠标
+    showHideOpacity:true//缩略图的尺寸与大图像的尺寸不匹配，启用缩放+淡化转场
+}
 Vue.use(VueSee,options)
 
 Vue.use(Vuex)
@@ -83,7 +86,7 @@ axios.get('/project/this_login')
             store.state.loginData.realName = _data.param5;
             store.state.loginData.phoneNumber = _data.param11;
         }else{
-            store.commit('showSnackBar',result.param1==null||result.param1==''?'尚未登录':result.param1)
+            store.commit('showSnackBar',result.param1==null||result.param1==''?'未登录':result.param1)
         }
 
         getProjectSetting();

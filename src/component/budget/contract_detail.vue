@@ -9,6 +9,11 @@
         <see-box>
             <see-item v-for="(item,index) in list" :key="index" :url="basePath+item.param6.replace('/upload/','/upload/original/')" :thumb="basePath+item.param6.replace('/upload/','/upload/thumb/')" :width="parseInt(item.param12.split('x')[0])" :height="parseInt(item.param12.split('x')[1])" :caption="item.param5"></see-item>
         </see-box>
+
+        <div class="upload-progress" v-if="progress">
+            <mu-circular-progress :size="60" />
+        </div>
+
     </div>
 </template>
 
@@ -20,15 +25,17 @@
         data(){
             return {
                 list: [],
+                x_code: this.$route.params.x_code,
                 basePath: this.$config.basePath,
-                wxReady: false //微信接口处理成功验证
+                wxReady: false, //微信接口处理成功验证
+                progress: false //上传图片时的进度显示
             }
         },
         methods: {
             uploadImage(){
                 let _this = this
                 if(_this.wxReady){
-                    var images = {
+                    let images = {
                         localId: [],
                         serverId: []
                     };
@@ -38,16 +45,16 @@
                         sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
                         sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
                         success: function (res) {
-                            var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+
+                            let localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
                             images.localId = localIds;
-                            alert('已选择 ' + localIds.length + ' 张图片');
                             images.serverId = [];
+                            let i = 0, length = images.localId.length;
                             function upload() {
                                 wx.uploadImage({
                                     localId: images.localId[i],
                                     success: function (res) {
                                         i++;
-                                        alert('已上传：' + i + '/' + length);
                                         images.serverId.push(res.serverId);
                                         if (i < length) {
                                             upload();
@@ -56,32 +63,43 @@
                                         }
                                     },
                                     fail: function (res) {
-                                        alert(JSON.stringify(res));
+                                        _this.$store.commit('showSnackBar',JSON.stringify(res))
                                     }
                                 });
                             }
-                            function downloadImages(uploadType) {
-                                alert("准备下载到服务器,图片数量"+images.serverId.length);
-                                var down_url = "/weixin/wxuploadimage";
+                            function downloadImages() {
+                                _this.progress = true
+                                let down_url = "/weixin/wxuploadimage";
                                 _this.$http.post(down_url,{
                                     param1: images.serverId.join(',')
                                 }).then(function (response) {
                                     let result = response.data;
                                     if(result.param0==0){
-                                        alert('==============')
-                                        alert(result.param1);
-
-
-
-//                                        _this.getReady()
+                                        let url = "/project/add";
+                                        _this.$http.post(url,{
+                                            param0: '',
+                                            param1: 'AddProjectContractListByWX',
+                                            param2: result.param1,
+                                            param3: _this.x_code
+                                        }).then(function (response) {
+                                            let result = response.data;
+                                            _this.progress = false
+                                            _this.$store.commit('showSnackBar',result.param1)
+                                            if(result.param0==0){
+                                                _this.getReady()
+                                            }
+                                        }).catch(function (error) {
+                                            _this.progress = false
+                                            _this.$store.commit('showSnackBar',error)
+                                        });
                                     }else{
+                                        _this.progress = false
                                         _this.$store.commit('showSnackBar',result.param1)
                                     }
                                 }).catch(function (error) {
                                     _this.$store.commit('showSnackBar',error)
                                 });
                             }
-
                             upload();
                         }
                     });
@@ -98,7 +116,7 @@
                     if(result.param0==0){
                         //获取签名成功
                         wx.config({
-                            debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
                             appId: result.param2, // 必填，公众号的唯一标识
                             timestamp: result.param5, // 必填，生成签名的时间戳
                             nonceStr: result.param4, // 必填，生成签名的随机串
@@ -185,6 +203,22 @@
         width:60%;
         text-align: right;
         font-size: 14px;
+    }
+    .upload-progress{
+        position:fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0,.35);
+        z-index: 10;
+    }
+    .upload-progress .mu-circular-progress{
+        /*position:fixed;*/
+        left: 50%;
+        top: 50%;
+        margin-top: -60px;
+        margin-left: -30px;
     }
 </style>
 

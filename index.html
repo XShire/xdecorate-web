@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
+        /*设置全局框架样式*/
         .mu-appbar{
             height: 48px !important;
             position: fixed;
@@ -23,6 +24,11 @@
         .home-main-grid {
             padding-top: 0;
             padding-bottom: 56px;
+        }
+
+        /*全局隐藏vue-see组件的分享和全屏按钮*/
+        .pswp__button--share,.pswp__button--fs{
+            display: none !important;
         }
     </style>
 </head>

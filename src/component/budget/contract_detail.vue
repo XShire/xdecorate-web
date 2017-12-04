@@ -104,6 +104,8 @@
                         }
                     });
 
+                }else{
+                    _this.$store.commit('showSnackBar','微信接口验证失败')
                 }
             },
             wxConfig(){
@@ -211,7 +213,7 @@
         top: 0;
         left: 0;
         background-color: rgba(0,0,0,.35);
-        z-index: 10;
+        z-index: 1000;
     }
     .upload-progress .mu-circular-progress{
         /*position:fixed;*/

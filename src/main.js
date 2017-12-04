@@ -6,22 +6,19 @@ import config from './config'
 import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
 import 'muse-ui/dist/theme-teal.css'
-import VueSee from 'vue-see'
 import Vuex from 'vuex'
-// import echarts from 'echarts'
-// Vue.prototype.$echarts = echarts
 
 Vue.use(MuseUI)
 Vue.use(config)
+Vue.use(Vuex)
 
-
+import VueSee from 'vue-see'
 var options={
     mouseUsed:true,//支持鼠标
     showHideOpacity:true//缩略图的尺寸与大图像的尺寸不匹配，启用缩放+淡化转场
 }
 Vue.use(VueSee,options)
 
-Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state: {

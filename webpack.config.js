@@ -32,7 +32,12 @@ module.exports = {
       {
           test: /\.js$/,
           loader: 'babel-loader',
-          exclude: /node_modules/
+          exclude: /node_modules/,
+          //懒加载
+          options:{
+              presets:[['es2015',{modules:false}]],
+              plugins:['syntax-dynamic-import']
+          }
       },
       {
         test: /\.(png|jpg|gif|svg)$/,

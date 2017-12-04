@@ -2,36 +2,67 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router';
 
+// import Login from './component/common/login.vue'
+// import Home from './component/common/home.vue'
+// import Person from './component/common/person.vue'
+// import Project from './component/common/project.vue'
+// import Share from './component/common/share.vue'
+// import ShareContract from './component/share/contract.vue'
+// import ShareContractDetail from './component/share/contract_detail.vue'
+// import ShareAudit from './component/share/audit.vue'
+// import ShareAuditDetail from './component/share/audit_detail.vue'
+// import ShareDesign from './component/share/design.vue'
+// import DesignOriginalFile from './component/design/original_file.vue'
+// import DesignDesign from './component/design/design.vue'
+// import MaterialGoodsGroup from './component/material/goods_group.vue'
+// import MaterialWarehouse from './component/material/warehouse.vue'
+// import MaterialWarehouseNew from './component/material/warehouse_new.vue'
+// import MaterialInWarehouse from './component/material/in_warehouse.vue'
+// import BuildGoodsApply from './component/build/goods_apply.vue'
+// import BuildGoodsBill from './component/build/goods_bill.vue'
+// import BuildGoodsBillDetail from './component/build/goods_bill_detail.vue'
+// import BuildGoodsBillReceive from './component/build/goods_bill_receive.vue'
+// import BuildGoodsTotal from './component/build/goods_total.vue'
+// import BuildLimitList from './component/build/limit_list.vue'
+// import BuildLimitDetail from './component/build/limit_detail.vue'
+// import BuildCheckQualityList from './component/build/check_quality_list.vue'
+// import BudgetTender from './component/budget/tender.vue'
+// import BudgetTenderDetail from './component/budget/tender_detail.vue'
+// import SettleInWarehouse from './component/settle/in_warehouse.vue'
+// import SettleInWarehousePaid from './component/settle/in_warehouse_paid.vue'
+// import BudgetContract from './component/budget/contract.vue'
+// import BudgetContractDetail from './component/budget/contract_detail.vue'
+
 import Login from './component/common/login.vue'
 import Home from './component/common/home.vue'
-import Person from './component/common/person.vue'
-import Project from './component/common/project.vue'
-import Share from './component/common/share.vue'
-import ShareContract from './component/share/contract.vue'
-import ShareContractDetail from './component/share/contract_detail.vue'
-import ShareAudit from './component/share/audit.vue'
-import ShareAuditDetail from './component/share/audit_detail.vue'
-import ShareDesign from './component/share/design.vue'
-import DesignOriginalFile from './component/design/original_file.vue'
-import DesignDesign from './component/design/design.vue'
-import MaterialGoodsGroup from './component/material/goods_group.vue'
-import MaterialWarehouse from './component/material/warehouse.vue'
-import MaterialWarehouseNew from './component/material/warehouse_new.vue'
-import MaterialInWarehouse from './component/material/in_warehouse.vue'
-import BuildGoodsApply from './component/build/goods_apply.vue'
-import BuildGoodsBill from './component/build/goods_bill.vue'
-import BuildGoodsBillDetail from './component/build/goods_bill_detail.vue'
-import BuildGoodsBillReceive from './component/build/goods_bill_receive.vue'
-import BuildGoodsTotal from './component/build/goods_total.vue'
-import BuildLimitList from './component/build/limit_list.vue'
-import BuildLimitDetail from './component/build/limit_detail.vue'
-import BuildCheckQualityList from './component/build/check_quality_list.vue'
-import BudgetTender from './component/budget/tender.vue'
-import BudgetTenderDetail from './component/budget/tender_detail.vue'
-import SettleInWarehouse from './component/settle/in_warehouse.vue'
-import SettleInWarehousePaid from './component/settle/in_warehouse_paid.vue'
-import BudgetContract from './component/budget/contract.vue'
-import BudgetContractDetail from './component/budget/contract_detail.vue'
+const Person = () => import('./component/common/person.vue')
+const Project = () => import('./component/common/project.vue')
+const Share = () => import('./component/common/share.vue')
+const ShareContract = () => import('./component/share/contract.vue')
+const ShareContractDetail = () => import('./component/share/contract_detail.vue')
+const ShareAudit = () => import('./component/share/audit.vue')
+const ShareAuditDetail = () => import('./component/share/audit_detail.vue')
+const ShareDesign = () => import('./component/share/design.vue')
+const DesignOriginalFile = () => import('./component/design/original_file.vue')
+const DesignDesign = () => import('./component/design/design.vue')
+const MaterialGoodsGroup = () => import('./component/material/goods_group.vue')
+const MaterialWarehouse = () => import('./component/material/warehouse.vue')
+const MaterialWarehouseNew = () => import('./component/material/warehouse_new.vue')
+const MaterialInWarehouse = () => import('./component/material/in_warehouse.vue')
+const BuildGoodsApply = () => import('./component/build/goods_apply.vue')
+const BuildGoodsBill = () => import('./component/build/goods_bill.vue')
+const BuildGoodsBillDetail = () => import('./component/build/goods_bill_detail.vue')
+const BuildGoodsBillReceive = () => import('./component/build/goods_bill_receive.vue')
+const BuildGoodsTotal = () => import('./component/build/goods_total.vue')
+const BuildLimitList = () => import('./component/build/limit_list.vue')
+const BuildLimitDetail = () => import('./component/build/limit_detail.vue')
+const BuildCheckQualityList = () => import('./component/build/check_quality_list.vue')
+const BudgetTender = () => import('./component/budget/tender.vue')
+const BudgetTenderDetail = () => import('./component/budget/tender_detail.vue')
+const SettleInWarehouse = () => import('./component/settle/in_warehouse.vue')
+const SettleInWarehousePaid = () => import('./component/settle/in_warehouse_paid.vue')
+const BudgetContract = () => import('./component/budget/contract.vue')
+const BudgetContractDetail = () => import('./component/budget/contract_detail.vue')
 
 Vue.use(VueRouter);
 
@@ -68,6 +99,8 @@ const routes = [
     {path:'/budget_contract',component: BudgetContract},
     {path:'/budget_contract_detail/:x_code',name: 'budget_contract_detail',component: BudgetContractDetail}
 ]
+
+
 
 const router = new VueRouter({
     base: '/mobile/',

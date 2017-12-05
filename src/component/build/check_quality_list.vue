@@ -33,8 +33,8 @@
                 <mu-date-picker label="质检时间" v-model="itemData.checkTime" autoOk labelFloat fullWidth/>
                 <mu-text-field label="检查内容" v-model="itemData.description" multiLine labelFloat fullWidth :rows="3" :rowsMax="6" :maxLength="200"/>
 
-                <mu-radio label="检查通过" name="result" nativeValue="1" class="result-radio" v-model="itemData.result"/>
-                <mu-radio label="口头警告" name="result" nativeValue="2" class="result-radio" v-model="itemData.result"/>
+                <mu-radio label="通过" name="result" nativeValue="1" class="result-radio" v-model="itemData.result"/>
+                <mu-radio label="警告" name="result" nativeValue="2" class="result-radio" v-model="itemData.result"/>
                 <mu-radio label="曝光台" name="result" nativeValue="3" class="result-radio" v-model="itemData.result"/>
 
                 <mu-raised-button label="取消" primary @click="addToggle(false)" class="save-btn"/>

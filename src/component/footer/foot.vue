@@ -33,6 +33,6 @@
     .mu-bottom-nav {
         position: fixed;
         bottom: 0;
-        z-index: 100;
+        z-index: 3;
     }
 </style>

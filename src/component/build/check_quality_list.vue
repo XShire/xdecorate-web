@@ -2,14 +2,17 @@
     <div class="home-main-grid" id="home-main-grid">
         <mu-appbar>
             <mu-flat-button label="质检记录" slot="left" disabled/>
-            <mu-flat-button label="添加" slot="right" @click=""/>
+            <mu-flat-button label="添加" slot="right" @click="addToggle(false)"/>
         </mu-appbar>
         <div class="divider-block"></div>
         <mu-list>
-            <mu-list-item :describeLine="10" v-for="item in itemList">
+            <mu-list-item :describeLine="10" v-for="item in itemList" @click="showInfo()">
                 <div slot="describe">
                     <mu-row gutter>
-                        <mu-col width="100"><span class="item_label">质检日期：</span>{{item.param7}}</mu-col>
+                        <mu-col width="100">
+                            <span class="item_label">质检日期：</span>{{item.param7}}
+                            <mu-flat-button label="修改" primary @click="addToggle(item)"/>
+                        </mu-col>
                         <mu-col width="100"><span class="item_label">质检人：</span>{{item.param10}}</mu-col>
                         <mu-col width="100"><span class="item_label">检查结果：</span>{{item.param11}}</mu-col>
                         <mu-col width="100"><span class="item_label">检查内容：</span>{{ item.param8.replace(/<[^>]+>/g,'').substr(0,50)}}</mu-col>
@@ -18,16 +21,28 @@
             </mu-list-item>
         </mu-list>
 
-        <mu-dialog :open="dialog" @close="closeDialog" dialogClass="goods-info-box" scrollable>
-            <div>
-                <mu-text-field label="工期名称" v-model="itemData.name" labelFloat fullWidth/>
-                <mu-date-picker label="预计开始时间" v-model="itemData.date1" labelFloat fullWidth/>
-                <mu-date-picker label="预计开始时间" v-model="itemData.date2" labelFloat fullWidth/>
-                <mu-text-field hintText="备注" v-model="itemData.intro" multiLine :rows="3" :rowsMax="6" :maxLength="100"/>
+        <!--添加质检记录-->
+        <mu-drawer width="100%" :open="add_open">
+            <mu-appbar>
+                <mu-icon-button icon="close" slot="right" @click="addToggle(false)"/>
+            </mu-appbar>
+            <div class="divider-block"></div>
+
+            <div class="add-input-box">
+                <mu-text-field label="质检人" v-model="itemData.checkUserName" labelFloat fullWidth disabled/>
+                <mu-date-picker label="质检时间" v-model="itemData.checkTime" autoOk labelFloat fullWidth/>
+                <mu-text-field label="检查内容" v-model="itemData.description" multiLine labelFloat fullWidth :rows="3" :rowsMax="6" :maxLength="200"/>
+
+                <mu-radio label="检查通过" name="result" nativeValue="1" class="result-radio" v-model="itemData.result"/>
+                <mu-radio label="口头警告" name="result" nativeValue="2" class="result-radio" v-model="itemData.result"/>
+                <mu-radio label="曝光台" name="result" nativeValue="3" class="result-radio" v-model="itemData.result"/>
+
+                <mu-raised-button label="取消" primary @click="addToggle(false)" class="save-btn"/>
+                <mu-raised-button label="保存" secondary @click="saveItem()" class="save-btn"/>
             </div>
-            <mu-flat-button primary label="关闭" @click="closeDialog" slot="actions"/>
-            <mu-flat-button secondary label="保存" @click="saveObject" slot="actions"/>
-        </mu-dialog>
+
+        </mu-drawer>
+        <!--添加质检记录-->
 
     </div>
 </template>
@@ -38,64 +53,74 @@
         data() {
             return {
                 itemList: [],
-                dialog:false,
+                add_open: false, //添加质检记录模块
                 itemData:{
-                    date1:'',
-                    date2:'',
-                    name:'',
-                    intro:''
+                    x_code: '',//对象code
+                    project_code: this.$store.state.projectSelected.code,//所属工程（当前选择工程）
+                    checkType: '2',//2-质检记录；3-巡检记录
+                    checkTime: this.$config.new_date,//检查日期(默认当前日期)
+                    description: '',//检查内容（图文）
+                    checkUserCode: this.$store.state.loginData.userCode,//检查人
+                    checkUserName: this.$store.state.loginData.username,//检查人
+                    result: '1'//检查结果：1-通过；2-口头警告；3-曝光台
                 }
             }
         },
         methods: {
-            getStatusStr (value) {
-                let nowStatus = '';
-                if(value=='1'){
-                    nowStatus = '未开始';
-                }else if(value=='2'){
-                    nowStatus = '工作中';
-                }else if(value=='3'){
-                    nowStatus = '完成';
+            addToggle (item) {
+                let _this = this
+                _this.add_open = !_this.add_open
+                if(item) {
+                    _this.itemData.x_code = item.param3;
+                    _this.itemData.project_code = item.param4;
+                    _this.itemData.checkType = item.param12;
+                    _this.itemData.checkTime = item.param7;
+                    _this.itemData.description = item.param8;
+                    _this.itemData.checkUserCode = item.param9;
+                    _this.itemData.checkUserName = item.param10;
+                    _this.itemData.result = item.param13;
+                }else{
+                    _this.itemData.x_code = '';
+                    _this.itemData.project_code = _this.$store.state.projectSelected.code;
+                    _this.itemData.checkType = '2';
+                    _this.itemData.checkTime = _this.$config.new_date;
+                    _this.itemData.description = '';
+                    _this.itemData.checkUserCode = _this.$store.state.loginData.userCode;
+                    _this.itemData.checkUserName = _this.$store.state.loginData.username;
+                    _this.itemData.result = '1';
                 }
-                return nowStatus;
-            },
-            openDialog () {
-                this.dialog = true
-            },
-            closeDialog () {
-                this.dialog = false
-            },
-            saveObject () {
-                let _this = this;
-                let param1 = "AddProjectLimit";
-                let param2 = this.$store.state.projectSelected.code;
-                let param3 = _this.itemData.name;
-                let param4 = _this.itemData.date1;
-                let param5 = _this.itemData.date2;
-                let param8 = _this.itemData.intro;
-                let saveData = {
-                    param1: param1,
-                    param2: param2,
-                    param3: param3,
-                    param4: param4,
-                    param5: param5,
-                    param8: param8
-                }
-                let url = "/project/add";
-                this.$http.post(url,saveData,{
 
+                event.stopPropagation();
+            },
+            saveItem () {
+                let _this = this;
+                let url = "/project/add";
+                this.$http.post(url,{
+                    param0: _this.itemData.x_code,
+                    param1: 'AddProjectCheck',
+                    param2: _this.itemData.project_code,
+                    param3: _this.itemData.checkType,
+                    param4: _this.itemData.checkUserCode,
+                    param5: _this.itemData.checkTime,
+                    param6: _this.itemData.description,
+                    param7: _this.itemData.result
                 }).then(function (response) {
                     let result = response.data;
                     if(result.param0==0){
                         _this.$store.commit('showSnackBar',result.param1)
-                        _this.dialog = false
+                        _this.add_open = false
                         _this.getReady()
                     }else{
                         _this.$store.commit('showSnackBar',result.param1)
                     }
                 }).catch(function (error) {
-                    console.info(error);
+//                    console.info(error);
+                    _this.$store.commit('showSnackBar',error);
                 });
+            },
+            showInfo() {
+                //显示详情
+
             },
             getReady () {
                 let _this = this;
@@ -103,11 +128,11 @@
                 let param2 = 'ByProjectAndType';
                 let param3 = null;
                 let param4 = null;
-                let param5 = this.$store.state.projectSelected.code;
+                let param5 = _this.$store.state.projectSelected.code;
                 let param6 = '2';//检查类型：质检
                 let saveData = {param1: param1, param2: param2, param3: param3, param4: param4, param5: param5, param6: param6};
                 let url = "/project/getObjects";
-                this.$http.post(url,saveData,{
+                _this.$http.post(url,saveData,{
 
                 }).then(function (response) {
                     let result = response.data;
@@ -117,7 +142,8 @@
                         _this.$store.commit('showSnackBar',result.param1)
                     }
                 }).catch(function (error) {
-                    console.info(error);
+                    _this.$store.commit('showSnackBar',error)
+//                    console.info(error);
                 });
             }
         },
@@ -134,12 +160,18 @@
         width: 80px;
         line-height: 2;
     }
-    .goods-info-box{
-        width: 80%;
-        max-width: 80%;
-    }
     .goods-info-box .mu-dialog-body{
         padding:10px 2% 0;
+    }
+    .add-input-box{
+        padding:10px 3% 30px;
+        width: 100%;
+    }
+    .result-radio{
+        width: 32%;
+    }
+    .save-btn{
+        margin-top: 20px;
     }
 </style>
 

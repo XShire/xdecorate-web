@@ -24,7 +24,7 @@
             <mu-list-item title="材料查看" to="material_goods_group">
                 <mu-icon value="navigate_next" slot="right"/>
             </mu-list-item>
-            <mu-list-item title="仓库清单" to="material_warehouse">
+            <mu-list-item title="仓库库存" to="material_warehouse">
                 <mu-icon value="navigate_next" slot="right"/>
             </mu-list-item>
             <mu-list-item title="新料采购" to="material_warehouse_new">

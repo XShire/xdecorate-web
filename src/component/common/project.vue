@@ -57,10 +57,10 @@
             <mu-list-item title="质检记录" to="build_check_quality_list">
                 <mu-icon value="navigate_next" slot="right"/>
             </mu-list-item>
-            <mu-list-item title="巡检记录">
+            <mu-list-item title="巡检记录" to="build_check_patrol_list">
                 <mu-icon value="navigate_next" slot="right"/>
             </mu-list-item>
-            <mu-list-item title="曝光台">
+            <mu-list-item title="曝光台" to="build_check_expose_list">
                 <mu-icon value="navigate_next" slot="right"/>
             </mu-list-item>
         </mu-list>

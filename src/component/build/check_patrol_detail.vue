@@ -1,13 +1,13 @@
 <template>
     <div class="home-main-grid" id="home-main-grid">
         <mu-appbar>
-            <mu-flat-button label="返回" slot="right" to="/build_check_quality_list"/>
-            <mu-flat-button label="质检记录" slot="left" disabled/>
+            <mu-flat-button label="返回" slot="right" to="/build_check_patrol_list"/>
+            <mu-flat-button label="巡检记录" slot="left" disabled/>
         </mu-appbar>
         <div class="divider-block"></div>
 
         <mu-sub-header class="header-box">
-            <div class="header-title">检查信息</div>
+            <div class="header-title">巡检信息</div>
             <div class="header-btn">
                 <mu-flat-button label="修改" primary @click="addToggle()"/>
             </div>
@@ -16,8 +16,8 @@
         <div class="detail-body">
             <mu-row gutter>
                 <mu-col width="100"><span class="item_label">所在工程：</span>{{itemData.param5}}</mu-col>
-                <mu-col width="100"><span class="item_label">检查日期：</span>{{itemData.param7}}</mu-col>
-                <mu-col width="100"><span class="item_label">检查结果：</span>{{itemData.param11}}</mu-col>
+                <mu-col width="100"><span class="item_label">巡检日期：</span>{{itemData.param7}}</mu-col>
+                <mu-col width="100"><span class="item_label">巡检结果：</span>{{itemData.param11}}</mu-col>
                 <mu-col width="100"><span class="item_label">检查内容：</span></mu-col>
                 <mu-col width="100"><span class="item_body">{{itemData.param8}}</span></mu-col>
             </mu-row>
@@ -25,7 +25,7 @@
 
         <mu-divider/>
         <mu-sub-header class="header-box">
-            <div class="header-title">检查图片</div>
+            <div class="header-title">巡检图片</div>
             <div class="header-btn">
                 <mu-flat-button label="上传" primary @click="uploadImage()"/>
             </div>
@@ -40,7 +40,7 @@
             <mu-circular-progress :size="60" />
         </div>
 
-        <!--添加质检记录-->
+        <!--添加巡检记录-->
         <mu-drawer width="100%" :open="add_open">
             <mu-appbar>
                 <mu-icon-button icon="close" slot="right" @click="addToggle()"/>
@@ -48,8 +48,8 @@
             <div class="divider-block"></div>
 
             <div class="add-input-box">
-                <mu-text-field label="质检人" v-model="editItem.checkUserName" labelFloat fullWidth disabled/>
-                <mu-date-picker label="质检时间" v-model="editItem.checkTime" autoOk labelFloat fullWidth/>
+                <mu-text-field label="巡检人" v-model="editItem.checkUserName" labelFloat fullWidth disabled/>
+                <mu-date-picker label="巡检时间" v-model="editItem.checkTime" autoOk labelFloat fullWidth/>
                 <mu-text-field label="检查内容" v-model="editItem.description" multiLine labelFloat fullWidth :rows="3" :rowsMax="6" :maxLength="200"/>
 
                 <mu-radio label="通过" name="result" nativeValue="1" class="result-radio" v-model="editItem.result"/>
@@ -61,7 +61,7 @@
             </div>
 
         </mu-drawer>
-        <!--添加质检记录-->
+        <!--添加巡检记录-->
 
     </div>
 </template>
@@ -79,11 +79,11 @@
                 attachList: [],//检查中的附件对象
                 wxReady: false, //微信接口处理成功验证
                 progress: false, //上传图片时的进度显示
-                add_open: false, //添加质检记录模块
+                add_open: false, //添加巡检记录模块
                 editItem: {
                     x_code: '',//对象code
                     project_code: '',//所属工程
-                    checkType: '2',//2-质检记录；3-巡检记录
+                    checkType: '3',//2-质检记录；3-巡检记录
                     checkTime: '',//检查日期(默认当前日期)
                     description: '',//检查内容（图文）
                     checkUserCode: '',//检查人

@@ -64,6 +64,10 @@ const SettleInWarehouse = () => import('./component/settle/in_warehouse.vue')
 const SettleInWarehousePaid = () => import('./component/settle/in_warehouse_paid.vue')
 const BudgetContract = () => import('./component/budget/contract.vue')
 const BudgetContractDetail = () => import('./component/budget/contract_detail.vue')
+const BuildCheckPatrolList = () => import('./component/build/check_patrol_list.vue')
+const BuildCheckPatrolDetail = () => import('./component/build/check_patrol_detail.vue')
+const BuildCheckExposeList = () => import('./component/build/check_expose_list.vue')
+const BuildCheckExposeDetail = () => import('./component/build/check_expose_detail.vue')
 
 Vue.use(VueRouter);
 
@@ -99,7 +103,11 @@ const routes = [
     {path:'/settle_in_warehouse',component: SettleInWarehouse},
     {path:'/settle_in_warehouse_paid',component: SettleInWarehousePaid},
     {path:'/budget_contract',component: BudgetContract},
-    {path:'/budget_contract_detail/:x_code',name: 'budget_contract_detail',component: BudgetContractDetail}
+    {path:'/budget_contract_detail/:x_code',name: 'budget_contract_detail',component: BudgetContractDetail},
+    {path:'/build_check_patrol_list',component: BuildCheckPatrolList},
+    {path:'/build_check_patrol_detail/:x_code',name: 'build_check_patrol_detail',component: BuildCheckPatrolDetail},
+    {path:'/build_check_expose_list',component: BuildCheckExposeList},
+    {path:'/build_check_expose_detail/:x_code',name: 'build_check_expose_detail',component: BuildCheckExposeDetail}
 ]
 
 

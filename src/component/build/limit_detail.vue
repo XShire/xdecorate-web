@@ -8,7 +8,7 @@
 
         <div>
             <mu-list>
-                <mu-list-item v-bind:title="itemData.param6" :afterText="getStatusStr(itemData.param14)" :describeLine="10" disabled>
+                <mu-list-item v-bind:title="itemData.param6" :afterText="getStatusStr(itemData.param14)" :describeLine="1000" disabled>
                     <div slot="describe">
                         <mu-row gutter>
                             <mu-col width="100"><span class="item_label">计划开始时间：</span>{{itemData.param7}}</mu-col>

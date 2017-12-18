@@ -57,6 +57,7 @@ const BuildGoodsTotal = () => import('./component/build/goods_total.vue')
 const BuildLimitList = () => import('./component/build/limit_list.vue')
 const BuildLimitDetail = () => import('./component/build/limit_detail.vue')
 const BuildCheckQualityList = () => import('./component/build/check_quality_list.vue')
+const BuildCheckQualityDetail = () => import('./component/build/check_quality_detail.vue')
 const BudgetTender = () => import('./component/budget/tender.vue')
 const BudgetTenderDetail = () => import('./component/budget/tender_detail.vue')
 const SettleInWarehouse = () => import('./component/settle/in_warehouse.vue')
@@ -92,6 +93,7 @@ const routes = [
     {path:'/build_limit_list',component: BuildLimitList},
     {path:'/build_limit_detail/:x_code',name: 'build_limit_detail',component: BuildLimitDetail},
     {path:'/build_check_quality_list',component: BuildCheckQualityList},
+    {path:'/build_check_quality_detail/:x_code',name: 'build_check_quality_detail',component: BuildCheckQualityDetail},
     {path:'/budget_tender',component: BudgetTender},
     {path:'/budget_tender_detail/:x_code',name: 'budget_tender_detail',component: BudgetTenderDetail},
     {path:'/settle_in_warehouse',component: SettleInWarehouse},

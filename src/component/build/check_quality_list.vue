@@ -6,7 +6,7 @@
         </mu-appbar>
         <div class="divider-block"></div>
         <mu-list>
-            <mu-list-item :describeLine="10" v-for="item in itemList" @click="showInfo()">
+            <mu-list-item :describeLine="10" v-for="item in itemList" :to="{ name: 'build_check_quality_detail', params: { x_code: item.param3 }}">
                 <div slot="describe">
                     <mu-row gutter>
                         <mu-col width="100">
@@ -117,10 +117,6 @@
 //                    console.info(error);
                     _this.$store.commit('showSnackBar',error);
                 });
-            },
-            showInfo() {
-                //显示详情
-
             },
             getReady () {
                 let _this = this;

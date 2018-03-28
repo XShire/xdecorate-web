@@ -3,7 +3,7 @@
         <div class="login-in">
             <mu-text-field label="用户名" hintText="请输入用户名" type="text" labelFloat fullWidth @input="inputUsername"/>
             <mu-text-field label="密码" hintText="请输入密码" type="password" labelFloat fullWidth @input="inputPassword"/>
-            <mu-checkbox label="用户绑定" class="demo-checkbox" @input="inputConnect"/>
+            <mu-checkbox label="微信绑定该用户" class="demo-checkbox" @input="inputConnect"/>
 
             <mu-raised-button label="登录" class="demo-raised-button" primary fullWidth @click="userSubmit"/>
         </div>
